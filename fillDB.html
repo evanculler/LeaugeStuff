@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.js'></script>
+<script>
+var output ='';
+$.ajax({
+  url: 'http://ddragon.leagueoflegends.com/cdn/4.20.1/data/en_US/champion.json',
+  type: 'GET',
+  dataType: 'json',
+  data: {
+
+  },
+  success: function(json){
+    for(var name in json.data){
+      output += name + ' '  ;
+    }
+    $('body').html(output);
+  },
+  error: function(){
+    alert('No man abandon his post');
+  }
+});
+</script>
+</body>
+</html>

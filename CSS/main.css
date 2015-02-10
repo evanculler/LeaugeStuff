@@ -1,0 +1,20 @@
+#searcharea{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: black;
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#test {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: black;
+    width: 40%;
+    margin: 0 auto;
+    border-top: 1px dotted #CCC;
+    text-align: center;
+}
+
+body {
+  text-align: center;
+}
