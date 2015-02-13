@@ -1,4 +1,6 @@
 
+//misnamed, file needs to be renamed in the future
+
 var champs = new Array('Aatrox','Ahri');
 var champs2 = new Array('Blitz','Bulwark');
 

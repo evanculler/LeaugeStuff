@@ -34,7 +34,7 @@ $('#search').keyup(function () {
                     output += '<div id =' + name + 'div> <li class=' + name + 'li>';
                     console.log(name);
                     output += name + ":</br>";
-                    output += '<a href=\'/championPage.php?champ=' + name + '\'> <img id=' + name + ' src= http://ddragon.leagueoflegends.com/cdn/5.2.2/img/champion/' + name + '.png></a>';
+                    output += '<a href=\'/PHP/championPage.php?champ=' + name + '\'> <img id=' + name + ' src= http://ddragon.leagueoflegends.com/cdn/5.2.2/img/champion/' + name + '.png></a>';
                     for(var iter in json.data[name].stats){
                       output += '<p id =' + iter + '>' + iter + ': ' + JSON.stringify(json.data[name].stats[iter]) + '</p>';
                     }
