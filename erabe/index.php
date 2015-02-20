@@ -6,6 +6,10 @@
     <label for="search">Champion Search</label><br />
     <input type="search" name="search" id="search" placeholder="name or info" />
 </div>
+<div id="submitSearch">
+  <label for="searchtwo">Searched Submitted Anime</label><br />
+  <input type="search" name"searchtwo" id="searchtwo" placedholder="anime in question" />
+</div>
 <select id="test">
 </select>
 <button id="sender" type="button">Submit Anime Evaluation</button>
