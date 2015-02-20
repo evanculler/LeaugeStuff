@@ -53,5 +53,23 @@ function populateSelect(){
         }
     });
   }
+  if(champSelect == 'Runes'){
+    $.ajax({
+        url: 'http://ddragon.leagueoflegends.com/cdn/4.20.1/data/en_US/rune.json',
+        type: 'GET',
+        dataType: 'json',
+        data: {
+
+        },
+        success: function (json) {
+            for (var name in json.data) {
+              $('#item').append('<option value=id' + name + '>' + json.data[name].name +'</option>');
+            }
+        },
+        error: function () {
+            alert('that shit cray');
+        }
+    });
+  }
 
 }

@@ -23,6 +23,7 @@ data: <input type="text" name="data"><br>
 <select id = "champSelect">
   <option val ="Champs">Champs</option>
   <option val ="Item">Items</option>
+  <option val ="Runes">Runes</option>
 </select>
 
 <select id = "item">
