@@ -1,4 +1,22 @@
 
+$('#searchtwo').keyup(function(){
+  var searched = $('#searchtwo').val().replace(/\W+/g, "");
+  $.ajax({
+    url: './retrieveAnime.php',
+    type: 'GET',
+    dataType: 'json',
+    data:{
+
+    },
+    success: function(json){
+      alert('weDidit');
+    },
+    error: function(){
+      alert('weDidnt');
+    }
+  });
+});
+
 //Populate option menu based on the string in the search bar, update option menu as keys are released.
 $('#search').keyup(function(){
   var searchField = $('#search').val().replace(/\W+/g, "");
@@ -12,15 +30,15 @@ $('#search').keyup(function(){
     data:{
 
     },
-    success: function (xml){
+    success: function (json){
       var idArray = [];
-      for (var object in xml){
-        idArray.push(xml[object].title);
+      for (var object in json){
+        idArray.push(json[object].title);
       }
       $('#test').empty();
       //idArray.sort();
       for (var x in idArray){
-        $('#test').append('<option value=' + xml[x].id + '>' + idArray[x] + xml[x].id + x +'</option>');
+        $('#test').append('<option value=' + json[x].id + '>' + idArray[x] + json[x].id + x +'</option>');
         console.log(idArray[x]);
       }
       $('#test').sort();
@@ -77,11 +95,11 @@ $('#submitIt').click(function(){
   });
 });
 /*
-for (var name in xml){
+for (var name in json){
   if(name == 'genres'){
     $('#test').append('Genre: <br />');
-    for(genre in xml[name]){
-      $('#test').append(xml[name][genre].name + '<br />');
+    for(genre in json[name]){
+      $('#test').append(json[name][genre].name + '<br />');
     }
   }
 }

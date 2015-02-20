@@ -12,7 +12,7 @@
 </div>
 <select id="test">
 </select>
-<button id="sender" type="button">Submit Anime Evaluation</button>
+<button id="sender" type="button">Get Anime Summary</button>
 <button id="submitIt" type ="button">The Real Submit</button>
 <div id="showInfo">
 </div>
