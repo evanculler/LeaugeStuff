@@ -1,18 +1,23 @@
 
 $('#searchtwo').keyup(function(){
   var searched = $('#searchtwo').val().replace(/\W+/g, "");
+  var output = '';
   $.ajax({
-    url: './retrieveAnime.php',
+    url: './retrieveAnime.php?q=' + searched,
     type: 'GET',
     dataType: 'json',
     data:{
 
     },
     success: function(json){
-      alert('weDidit');
+      for(var x in json){
+        for(var y in json[x]){
+          output += json[x][y] + '<br />';
+        }
+      }
+      $('#showInfo').html(output);
     },
     error: function(){
-      alert('weDidnt');
     }
   });
 });
@@ -20,7 +25,6 @@ $('#searchtwo').keyup(function(){
 //Populate option menu based on the string in the search bar, update option menu as keys are released.
 $('#search').keyup(function(){
   var searchField = $('#search').val().replace(/\W+/g, "");
-//  var searchExp = new RegExp(searchField, "i");
   var output = '';
   console.log(searchField);
   $.ajax({
@@ -51,6 +55,7 @@ $('#search').keyup(function(){
 });
 //Send info form option menu '#test' too apiHandler to get information about the show the user is looking to evaluate
 $('#sender').click(function(){
+  var relevantInfo = ['age_rating'];
   $.ajax({
     url:'./apiHandler.php?id=' + $('#test').val(),
     type: 'GET',
@@ -64,16 +69,19 @@ $('#sender').click(function(){
           console.log('data =' + data);
           $('#showInfo').append('Genre: <br />');
           for(genre in json[data]){
-            //alert(JSON.stringify(json.genres[0]));
             $('#showInfo').append(json.genres[genre].name + '<br />');
           }
         }
+        else if(data == 'synopsis'){
+
+        }
+        else if($.inArray(data,relevantInfo) != -1){
+          console.log('H O L L A W E D E M B O Y Z');
+        }
         else{
-        $('#showInfo').append(data + ' : ' + json[data] + '<br />');
+          $('#showInfo').append(data + ' : ' + json[data] + '<br />');
         }
       }
-//      alert('hey');
-//      alert($('#test').val());
     },
     error: function(){
 //      alert($('#test').val());
@@ -94,13 +102,3 @@ $('#submitIt').click(function(){
     }
   });
 });
-/*
-for (var name in json){
-  if(name == 'genres'){
-    $('#test').append('Genre: <br />');
-    for(genre in json[name]){
-      $('#test').append(json[name][genre].name + '<br />');
-    }
-  }
-}
-*/
