@@ -55,7 +55,7 @@ $('#search').keyup(function(){
 });
 //Send info form option menu '#test' too apiHandler to get information about the show the user is looking to evaluate
 $('#sender').click(function(){
-  var relevantInfo = ['age_rating'];
+  var excludeArray = ['alternate_title','started_airing','finished_airing','age_rating','episode_count','episode_length'];
   $.ajax({
     url:'./apiHandler.php?id=' + $('#test').val(),
     type: 'GET',
@@ -75,7 +75,7 @@ $('#sender').click(function(){
         else if(data == 'synopsis'){
 
         }
-        else if($.inArray(data,relevantInfo) != -1){
+        else if($.inArray(data,excludeArray) !== -1){
           console.log('H O L L A W E D E M B O Y Z');
         }
         else{
