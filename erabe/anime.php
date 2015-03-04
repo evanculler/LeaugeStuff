@@ -1,4 +1,5 @@
 <?php
+
   class anime{
     private $id;
     private $name;

@@ -92,10 +92,10 @@ $('#submitIt').click(function(){
   $.ajax({
     url: './submitAnime.php',
     type: 'POST',
-    data: {test : "test"
+    data: {test : $('#test').val()
     },
     success: function(){
-      alert('itworked');
+      alert($('#test').val());
     },
     error: function(){
       alert('itdidnt');

@@ -1,4 +1,8 @@
 <?php
+
+  include 'anime.php';
+
+
   class query{
 
     private $host;
@@ -29,6 +33,12 @@
         */
       }
       return json_encode($resultArray);
+
+    }
+
+    public function submitAnime($id,$name,$syn,$rating,$picPath){
+
+      $sql = "INSERT INTO Anime (id, title, erabe, description, placeholder) VALUES ('$id','$name','$syn','$rating','$picPath')";
 
     }
 
