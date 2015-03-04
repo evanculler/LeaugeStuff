@@ -16,6 +16,14 @@
     echo(json_encode($theArray));
   }
   if($_GET['id'] != null){
-    echo(file_get_contents('http://hummingbird.me/api/v1/anime/' . $_GET['id']));
+    $theArray = array();
+    $handle = file_get_contents('http://hummingbird.me/api/v1/anime/' . $_GET['id']);
+    $jsonHandle = json_decode($handle);
+    foreach($jsonHandle as $key => $value){
+      if(!in_array($key,$excludeValues)){
+          $theArray[$key] = $value;
+      }
+    }
+    echo(json_encode($theArray));
   }
 ?>
