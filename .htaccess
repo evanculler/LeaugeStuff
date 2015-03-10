@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule ^([a-z\-]+)$ erabe/submitAnime.php?test=1
+RewriteRule ^api/v1/(.*) api.php
